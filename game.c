@@ -10,6 +10,7 @@ typedef struct{
 }_Danmaku;
 _Danmaku Danmaku[DANMAKU_MAXLEN];
 int DanmakuLength=0;
+
 void UpdateMessage(){
     SDL_Event event;
     while(SDL_PollEvent(&event)){
@@ -59,7 +60,15 @@ int Danmaku_Update01(_Danmaku* d){
     }
 }
 int Danmaku_Draw01(_Danmaku* d){
-    DrawPoint((int)d->x,(int)(d->y+CameraY));
+    int x=(int)d->x-1,y=(int)(d->y+CameraY)-1;
+    DrawPoint(x+1,y);
+    DrawPoint(x+2,y);
+    DrawPoint(x,y+1);
+    DrawPoint(x,y+2);
+    DrawPoint(x+1,y+3);
+    DrawPoint(x+2,y+3);
+    DrawPoint(x+3,y+1);
+    DrawPoint(x+3,y+2);
 }
 
 int Danmaku_Update02(_Danmaku* d){
@@ -91,7 +100,6 @@ void Danmaku_Update(){
         };
     }
     DanmakuLength=j;
-    printf("%d\n",DanmakuLength);
 }
 
 void Danmaku_Draw(){

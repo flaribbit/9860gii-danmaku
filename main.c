@@ -14,8 +14,8 @@ int WinMain(int argc, char *argv[])
             Danmaku_Add(0,64,32,cosf(3.14+angle),sinf(3.14+angle));
             Danmaku_Add(0,64,32,cosf(4.71+angle),sinf(4.71+angle));
 
-            Danmaku_Add(0,80,40,0.6*cosf(-angle),0.6*sinf(-angle));
-            Danmaku_Add(0,80,40,0.6*cosf(3.14-angle),0.6*sinf(3.14-angle));
+            Danmaku_Add(1,80,40,0.8*cosf(-angle),0.6*sinf(-angle));
+            Danmaku_Add(1,80,40,0.8*cosf(3.14-angle),0.6*sinf(3.14-angle));
         }
         UpdateMessage();
         Danmaku_Update();
