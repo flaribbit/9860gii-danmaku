@@ -15,7 +15,7 @@ void ScreenClear(){
 
 void ScreenRefresh(){
     SDL_RenderPresent(renderer);
-    SDL_Delay(1000/60);
+    SDL_Delay(1000/30);
 }
 
 void DrawPoint(int x, int y){

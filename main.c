@@ -1,4 +1,4 @@
-#include "wrapper.h"
+#include <math.h>
 #include "game.h"
 #include "res.h"
 int WinMain(int argc, char *argv[])
@@ -7,14 +7,19 @@ int WinMain(int argc, char *argv[])
     for(;frames;frames++){
         int i;
         ScreenClear();
-        for(i=0;i<64;i++){
-            DrawPoint(2*i,i);
-            DrawPoint(2*i+1,i);
-        }
-        for(i=0;i<5;i++){
-            DrawImage(res[i],64,10*i);
+        if(frames%2==0){
+            float angle=frames/2/31.*_2PI;
+            Danmaku_Add(0,64,32,cosf(angle),sinf(angle));
+            Danmaku_Add(0,64,32,cosf(1.57+angle),sinf(1.57+angle));
+            Danmaku_Add(0,64,32,cosf(3.14+angle),sinf(3.14+angle));
+            Danmaku_Add(0,64,32,cosf(4.71+angle),sinf(4.71+angle));
+
+            Danmaku_Add(0,80,40,0.6*cosf(-angle),0.6*sinf(-angle));
+            Danmaku_Add(0,80,40,0.6*cosf(3.14-angle),0.6*sinf(3.14-angle));
         }
         UpdateMessage();
+        Danmaku_Update();
+        Danmaku_Draw();
         ScreenRefresh();
     }
     SDL_DestroyWindow(window);
