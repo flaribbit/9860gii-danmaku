@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
         fprintf(fp_hex,"0x%02x,",row);
     }
     fseek(fp_hex,-1,SEEK_CUR);
-    fprintf(fp_hex,"\n}\n");
+    fprintf(fp_hex,"\n};\n");
     fclose(fp_pix);
     fclose(fp_hex);
     return 0;
